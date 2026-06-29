@@ -1,7 +1,11 @@
+import { Clock } from '../../widgets/Clock';
+import { Greeting } from '../../widgets/Greeting';
+
 export function App() {
   return (
-    <main className="grid min-h-screen place-items-center bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-      <h1 className="text-4xl font-semibold tracking-tight">Hello FreshTab</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-white px-6 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+      <Clock />
+      <Greeting displayName="" />
     </main>
   );
 }
