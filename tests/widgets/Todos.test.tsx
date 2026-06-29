@@ -17,6 +17,11 @@ describe('Todos', () => {
     expect(await screen.findByText('ship phase 3')).toBeInTheDocument();
   });
 
+  it('shows an empty state when there are no todos', async () => {
+    render(<Todos />);
+    expect(await screen.findByText(/no tasks yet/i)).toBeInTheDocument();
+  });
+
   it('adds a todo from the input on Enter', async () => {
     const user = userEvent.setup();
     render(<Todos />);

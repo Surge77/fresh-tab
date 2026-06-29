@@ -17,6 +17,11 @@ describe('QuickLinks', () => {
     expect(await screen.findByText('Docs')).toBeInTheDocument();
   });
 
+  it('shows an empty state when there are no links', async () => {
+    render(<QuickLinks />);
+    expect(await screen.findByText(/no links yet/i)).toBeInTheDocument();
+  });
+
   it('adds a sanitized link via the modal', async () => {
     const user = userEvent.setup();
     render(<QuickLinks />);

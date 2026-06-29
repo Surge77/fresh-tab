@@ -76,6 +76,12 @@ export function Todos() {
         </button>
       </form>
 
+      {hasLoaded && todos.length === 0 && (
+        <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+          No tasks yet — add one above.
+        </p>
+      )}
+
       <ul className="mt-3 space-y-1">
         {todos.map((todo) => (
           <li
