@@ -1,5 +1,6 @@
 import { Clock } from '../../widgets/Clock';
 import { Greeting } from '../../widgets/Greeting';
+import { QuickLinks } from '../../widgets/QuickLinks';
 import { Todos } from '../../widgets/Todos';
 
 export function App() {
@@ -8,6 +9,7 @@ export function App() {
       <Clock />
       <Greeting displayName="" />
       <Todos />
+      <QuickLinks />
     </main>
   );
 }
