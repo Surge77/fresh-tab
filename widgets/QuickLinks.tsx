@@ -71,6 +71,10 @@ export function QuickLinks() {
         </button>
       </div>
 
+      {hasLoaded && links.length === 0 && (
+        <p className="text-sm text-slate-500 dark:text-slate-400">No links yet — use “+ Add”.</p>
+      )}
+
       <ul className="grid grid-cols-2 gap-2">
         {links.map((link) => (
           <li key={link.id} className="flex items-center gap-1">
