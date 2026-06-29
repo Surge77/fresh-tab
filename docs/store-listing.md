@@ -90,9 +90,8 @@ the domain you chose to add as a link.
 - Fill Privacy practices tab with the answers above; justify `storage`.
 
 ## Store assets checklist
-- [ ] Icons 16 / 32 / 48 / 128 px (already in `public/icon/`; replace the
-      placeholder art before launch)
-- [ ] 1–3 screenshots (1280×800 or 640×400) — `.output/newtab-smoke.png` is a
-      starting point
-- [ ] Short + long description (above)
-- [ ] Privacy disclosure (above)
+- [x] Icons 16 / 32 / 48 / 96 / 128 px — branded clock mark in `public/icon/`
+- [x] Screenshots (1280×800) — `docs/screenshots/1-dashboard-light.png`,
+      `2-dashboard-dark.png`, `3-settings.png`
+- [x] Short + long description (above)
+- [x] Privacy disclosure (above)
