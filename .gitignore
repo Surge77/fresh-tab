@@ -20,6 +20,7 @@ dist/
 npm-debug.log*
 
 # Editor / OS
+*.stackdump
 .DS_Store
 Thumbs.db
 .idea/
