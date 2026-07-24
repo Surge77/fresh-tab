@@ -1,3 +1,173 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ---------- Accent system ---------- */
+:root {
+  --accent: #3b82f6;
+  --accent-strong: #2563eb;
+}
+[data-accent='violet'] {
+  --accent: #8b5cf6;
+  --accent-strong: #7c3aed;
+}
+[data-accent='emerald'] {
+  --accent: #10b981;
+  --accent-strong: #059669;
+}
+[data-accent='amber'] {
+  --accent: #f59e0b;
+  --accent-strong: #d97706;
+}
+[data-accent='rose'] {
+  --accent: #f43f5e;
+  --accent-strong: #e11d48;
+}
+[data-accent='cyan'] {
+  --accent: #06b6d4;
+  --accent-strong: #0891b2;
+}
+
+.accent-text {
+  color: var(--accent);
+}
+.accent-text:hover {
+  color: var(--accent-strong);
+}
+.accent-bg {
+  background-color: var(--accent);
+}
+.accent-bg:hover {
+  background-color: var(--accent-strong);
+}
+input[type='checkbox'] {
+  accent-color: var(--accent);
+}
+
+/* ---------- Aurora background ---------- */
+/* Palettes shift with time of day; dark theme deepens the base. */
+:root {
+  --aurora-1: #93c5fd;
+  --aurora-2: #c4b5fd;
+  --aurora-3: #99f6e4;
+  --aurora-base: #f8fafc;
+}
+[data-daypart='dawn'] {
+  --aurora-1: #fda4af;
+  --aurora-2: #fcd34d;
+  --aurora-3: #c4b5fd;
+}
+[data-daypart='dusk'] {
+  --aurora-1: #f9a8d4;
+  --aurora-2: #a78bfa;
+  --aurora-3: #fdba74;
+}
+[data-daypart='night'] {
+  --aurora-1: #6366f1;
+  --aurora-2: #0ea5e9;
+  --aurora-3: #8b5cf6;
+}
+[data-theme='dark'] {
+  --aurora-base: #020617;
+}
+
+/* Base page color lives on html so the page is correct with aurora off too. */
+html {
+  background: var(--aurora-base);
+  transition: background 0.6s ease;
+}
+
+.aurora-canvas {
+  background: var(--aurora-base);
+  transition: background 0.6s ease;
+}
+
+.aurora-blob {
+  position: absolute;
+  width: 45vmax;
+  height: 45vmax;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.5;
+  will-change: transform;
+}
+[data-theme='dark'] .aurora-blob {
+  opacity: 0.28;
+}
+
+.aurora-blob-1 {
+  background: var(--aurora-1);
+  top: -12vmax;
+  left: -8vmax;
+  animation: aurora-drift-1 26s ease-in-out infinite alternate;
+}
+.aurora-blob-2 {
+  background: var(--aurora-2);
+  bottom: -14vmax;
+  right: -10vmax;
+  animation: aurora-drift-2 32s ease-in-out infinite alternate;
+}
+.aurora-blob-3 {
+  background: var(--aurora-3);
+  top: 30%;
+  left: 55%;
+  width: 32vmax;
+  height: 32vmax;
+  animation: aurora-drift-3 38s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-1 {
+  to {
+    transform: translate(10vmax, 8vmax) scale(1.15);
+  }
+}
+@keyframes aurora-drift-2 {
+  to {
+    transform: translate(-8vmax, -10vmax) scale(1.2);
+  }
+}
+@keyframes aurora-drift-3 {
+  to {
+    transform: translate(-12vmax, 6vmax) scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
+  }
+}
+
+/* ---------- Glass surfaces ---------- */
+.glass {
+  background: rgb(255 255 255 / 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.5);
+  box-shadow: 0 8px 32px rgb(15 23 42 / 0.08);
+}
+[data-theme='dark'] .glass {
+  background: rgb(15 23 42 / 0.5);
+  border-color: rgb(255 255 255 / 0.08);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.35);
+}
+
+/* ---------- Entry animation ---------- */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.45s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise-in {
+    animation: none;
+  }
+}

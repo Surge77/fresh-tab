@@ -59,13 +59,13 @@ export function QuickLinks() {
   }
 
   return (
-    <section aria-label="Quick links" className="w-full max-w-md">
+    <section aria-label="Quick links" className="glass rise-in w-full max-w-md rounded-xl p-4">
       <div className="mb-2 flex items-center justify-between">
         <h2 className="text-sm font-medium text-slate-500 dark:text-slate-400">Quick links</h2>
         <button
           type="button"
           onClick={() => setModal({ mode: 'add' })}
-          className="rounded-md px-2 py-1 text-sm text-blue-500 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          className="accent-text rounded-md px-2 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           + Add
         </button>

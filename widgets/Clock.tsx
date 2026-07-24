@@ -13,7 +13,7 @@ export function Clock() {
   return (
     <div className="text-center">
       <div
-        className="text-7xl font-semibold tracking-tight tabular-nums sm:text-8xl"
+        className="text-7xl font-extralight tracking-tight tabular-nums sm:text-8xl"
         aria-label="Current time"
       >
         {formatTime(now)}
