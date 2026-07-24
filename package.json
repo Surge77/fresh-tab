@@ -2,7 +2,7 @@
   "name": "fresh-tab",
   "description": "A fast, customizable new-tab dashboard browser extension (MV3, cross-browser).",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "wxt",

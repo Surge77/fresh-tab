@@ -1,6 +1,6 @@
 import { useEffect, useReducer, useState, type FormEvent, type KeyboardEvent } from 'react';
 
-import { getTodos, setTodos } from '../lib/storage';
+import { getTodos, setTodos, TODOS_CHANGED_EVENT } from '../lib/storage';
 import { todosReducer } from '../lib/todos-reducer';
 
 const WRITE_DEBOUNCE_MS = 250;
@@ -40,6 +40,12 @@ export function Todos() {
     return () => clearTimeout(timeoutId);
   }, [todos, hasLoaded]);
 
+  useEffect(() => {
+    const reload = () => void getTodos().then((loaded) => dispatch({ type: 'set', todos: loaded }));
+    window.addEventListener(TODOS_CHANGED_EVENT, reload);
+    return () => window.removeEventListener(TODOS_CHANGED_EVENT, reload);
+  }, []);
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = draft.trim();
@@ -61,7 +67,7 @@ export function Todos() {
   }
 
   return (
-    <section aria-label="Todos" className="w-full max-w-md">
+    <section aria-label="Todos" className="glass rise-in w-full max-w-md rounded-xl p-4">
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input
           type="text"
@@ -71,7 +77,7 @@ export function Todos() {
           aria-label="New task"
           className={inputClass}
         />
-        <button type="submit" className={`${buttonClass} text-blue-500 hover:text-blue-600`}>
+        <button type="submit" className={`${buttonClass} accent-text`}>
           Add
         </button>
       </form>
